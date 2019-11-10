@@ -6,36 +6,14 @@
 <html lang="pt-BR">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>Lista de Produtos</title>
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-	crossorigin="anonymous">
-<link
-	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-	rel="stylesheet"
-	integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-	crossorigin="anonymous">
+<jsp:include page="../includes/head.jsp" />
 </head>
 
 <body>
 	<div class="container">
-		<div class="row">
-			<div class="col-sm-12">
-				<ul class="nav nav-tabs">
-					<li class="nav-item"><a class="nav-link"
-						href="${s:mvcUrl('CC#index').build() }">Categorias</a></li>
-					<li class="nav-item"><a class="nav-link active"
-						href="${s:mvcUrl('PC#index').build() }">Produtos</a></li>
-					<li class="nav-item"><a class="nav-link"
-						href="${s:mvcUrl('UC#index').build() }">Usuários</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">Link</a></li>
-				</ul>
-			</div>
-		</div>
+		<header>
+		<jsp:include page="../includes/header.jsp" />
+		</header>
 
 		<form method="get">
 			<div class="row" style="margin-top: 20px;">
