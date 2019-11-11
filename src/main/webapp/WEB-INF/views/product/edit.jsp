@@ -60,48 +60,6 @@
 			</div>
 		</form>
 
-		<div class="row">
-			<div class="col-sm-12">
-				<table class="table table-hover">
-					<thead>
-						<tr>
-							<th scope="col">Nome</th>
-							<th scope="col">Categoria</th>
-							<th scope="col">Editora</th>
-							<th scope="col">Ações</th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:if test="${products.size() > 0 }">
-							<c:forEach items="${products }" var="product">
-								<tr>
-									<td>${product.id }</td>
-									<td>${product.name }</td>
-									<td>${product.category.name }</td>
-									<td>${product.publishing}</td>
-									<td><a
-										href="${s:mvcUrl('PC#edit').arg(0,product.id).build() }"
-										title="Editar" class="act-list act-edit">
-											<button type="button" class="btn btn-primary">
-												<i class="fa fa-edit" aria-hidden="true"></i>
-											</button>
-									</a> <a href="${s:mvcUrl('PC#delete').arg(0,product.id).build() }"
-										title="Excluir" class="act-list act-delete">
-											<button type="button" class="btn btn-danger">
-												<i class="fa fa-trash" aria-hidden="true"></i>
-											</button>
-
-									</a></td>
-								</tr>
-							</c:forEach>
-						</c:if>
-
-					</tbody>
-				</table>
-			</div>
-		</div>
-	</div>
-
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 		crossorigin="anonymous"></script>
