@@ -12,10 +12,10 @@
 <body>
 	<div class="container">
 		<header>
-		<jsp:include page="../includes/header.jsp" />
+			<jsp:include page="../includes/header.jsp" />
 		</header>
 
-		<div class="row" style="margin-top:20px;">
+		<div class="row" style="margin-top: 20px;">
 			<div class="col-sm-12">
 				<h1>Editar Produtos</h1>
 			</div>
@@ -32,8 +32,9 @@
 				</div>
 				<div class="col-sm-6">
 					<div class="form-group">
-						<label for="publishing">Editora</label> <input type="text" name="publishing"
-							id="publishing" class="form-control" value="${product.publishing }">
+						<label for="publishing">Editora</label> <input type="text"
+							name="publishing" id="publishing" class="form-control"
+							value="${product.publishing }">
 					</div>
 				</div>
 
@@ -45,18 +46,60 @@
 							class="form-control">
 							<option>Selecione..</option>
 							<c:forEach items="${categories }" var="category">
-								<option value="${category.id }" ${category.id == product.category.id ? "selected" : ""}>${category.name }</option>
+								<option value="${category.id }"
+									${category.id == product.category.id ? "selected" : ""}>${category.name }</option>
 							</c:forEach>
 						</select>
 					</div>
 				</div>
 			</div>
-			 <div class="row">
+			<div class="row">
 				<div class="col-sm-6">
 					<button type="submit" class="btn btn-primary">Atualizar</button>
-				</div> 
+				</div>
 			</div>
 		</form>
+
+		<div class="row">
+			<div class="col-sm-12">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th scope="col">Nome</th>
+							<th scope="col">Categoria</th>
+							<th scope="col">Editora</th>
+							<th scope="col">Ações</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:if test="${products.size() > 0 }">
+							<c:forEach items="${products }" var="product">
+								<tr>
+									<td>${product.id }</td>
+									<td>${product.name }</td>
+									<td>${product.category.name }</td>
+									<td>${product.publishing}</td>
+									<td><a
+										href="${s:mvcUrl('PC#edit').arg(0,product.id).build() }"
+										title="Editar" class="act-list act-edit">
+											<button type="button" class="btn btn-primary">
+												<i class="fa fa-edit" aria-hidden="true"></i>
+											</button>
+									</a> <a href="${s:mvcUrl('PC#delete').arg(0,product.id).build() }"
+										title="Excluir" class="act-list act-delete">
+											<button type="button" class="btn btn-danger">
+												<i class="fa fa-trash" aria-hidden="true"></i>
+											</button>
+
+									</a></td>
+								</tr>
+							</c:forEach>
+						</c:if>
+
+					</tbody>
+				</table>
+			</div>
+		</div>
 	</div>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
