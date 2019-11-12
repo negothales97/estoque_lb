@@ -1,5 +1,6 @@
 package br.com.casadocodigo.loja.controllers;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -39,7 +40,13 @@ public class ProductController {
 	@RequestMapping("criar")
 	public ModelAndView create() {
 		ModelAndView modelAndView = new ModelAndView("product/create");
-		List<Category> categories = categoryDao.index(null);
+		List<Category> categories = null;
+		try {
+			categories = categoryDao.index(null);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		modelAndView.addObject("categories", categories);
 		return modelAndView;
 	}
@@ -58,7 +65,13 @@ public class ProductController {
 	public ModelAndView edit(Integer productId) {
 		Product product = dao.find(productId);
 		
-		List<Category> categories = categoryDao.index(null);
+		List<Category> categories = null;
+		try {
+			categories = categoryDao.index(null);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		ModelAndView modelAndView = new ModelAndView("product/edit");
 		modelAndView.addObject("categories", categories);
