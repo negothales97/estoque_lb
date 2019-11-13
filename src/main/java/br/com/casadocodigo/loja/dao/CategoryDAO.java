@@ -23,6 +23,10 @@ public class CategoryDAO {
 	@PersistenceContext
 	private EntityManager manager;
 
+	private final String PROCEDURE = "delimiter/\r\n"
+			+ "CREATE PROCEDURE deletaCat <IN category_id INT>\r\n" + "BEGIN\r\n"
+			+ "DELETE FROM category WHERE id= category_id;\r\n" + "END\r\n" + "/";
+	private final String CALL = "call deletaCat(?)/ ";
 	private final String SEARCH = "SELECT id, name from category WHERE name LIKE ?";
 	private final String INSERT = "INSERT INTO category (name) values (?)";
 	private final String UPDATE = "UPDATE category SET name=? WHERE id=?";
@@ -78,10 +82,21 @@ public class CategoryDAO {
 		}
 	}
 
+	/*
+	 * public void delete(int id) throws SQLException { try (Connection con =
+	 * DatabaseConnection.getInstance().getConnection()) {
+	 * 
+	 * PreparedStatement stmt = con.prepareStatement(DELETE); stmt.setInt(1, id);
+	 * stmt.execute();
+	 * 
+	 * } catch (SQLException e) { System.out.println(e.getMessage()); } }
+	 */
+
 	public void delete(int id) throws SQLException {
 		try (Connection con = DatabaseConnection.getInstance().getConnection()) {
 
-			PreparedStatement stmt = con.prepareStatement(DELETE);
+			PreparedStatement stmt = con.prepareStatement("{call deletaCat(?)}");
+
 			stmt.setInt(1, id);
 			stmt.execute();
 
@@ -93,6 +108,16 @@ public class CategoryDAO {
 	public Category find(Integer id) {
 		return manager.find(Category.class, id);
 	}
+
+	public void executeProc() throws SQLException {
+		try (Connection con = DatabaseConnection.getInstance().getConnection()) {
+			con.prepareStatement(PROCEDURE);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+	}
+
 //	public List<Category> index(String searchString) {
 //		String name = searchString == null ? "%" : searchString.concat("%");
 //		return manager.createQuery("select c from Category c where c.name like :name").setParameter("name",name).getResultList();
