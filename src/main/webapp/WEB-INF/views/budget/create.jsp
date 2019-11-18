@@ -12,36 +12,42 @@
 <body>
 	<div class="container">
 		<header>
-		<jsp:include page="../includes/header.jsp" />
+			<jsp:include page="../includes/header.jsp" />
 		</header>
 
-		<div class="row" style="margin-top:20px;">
+		<div class="row" style="margin-top: 20px;">
 			<div class="col-sm-12">
-				<h1>Editar Categorias</h1>
+				<h1>Novo Pedido</h1>
 			</div>
 		</div>
-		<form method="POST" action="${s:mvcUrl('CC#update').build() }">
+		<form method="POST" action="${s:mvcUrl('BC#save').build() }">
 
-			<input type="hidden" value="${category.id }" name="id">
 			<div class="row">
 				<div class="col-sm-6">
 					<div class="form-group">
-						<label for="name">Nome</label> <input type="text" name="name"
-							id="name" value="${category.name }" class="form-control">
+						<label for="user">Usuários</label> <select class="form-control"
+							name="userId">
+							<option>Selecione..</option>
+							<c:forEach items="${users }" var="user">
+								<option value="${user.id }">${user.name }</option>
+							</c:forEach>
+						</select>
 					</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-sm-6">
-					<button type="submit" class="btn btn-primary">Atualizar</button>
+					<button type="submit" class="btn btn-primary">Salvar</button>
 				</div>
 			</div>
 		</form>
 	</div>
 
+
 	<footer>
 		<jsp:include page="../includes/footer.jsp" />
 	</footer>
 </body>
+
 
 </html>

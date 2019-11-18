@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.casadocodigo.loja.dao.CategoryDAO;
 import br.com.casadocodigo.loja.dao.ProductDAO;
@@ -33,6 +34,7 @@ public class ProductController {
 			System.out.println(searchString);
 			List<Product> products = dao.index(searchString);
 			ModelAndView modelAndView = new ModelAndView("product/index");
+			modelAndView.addObject("pageName", "product");
 			modelAndView.addObject("products", products);
 			return modelAndView;
 	}
@@ -69,10 +71,8 @@ public class ProductController {
 		try {
 			categories = categoryDao.index(null);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 		ModelAndView modelAndView = new ModelAndView("product/edit");
 		modelAndView.addObject("categories", categories);
 		modelAndView.addObject("product", product);
@@ -82,7 +82,6 @@ public class ProductController {
 	@RequestMapping(value="update", method=RequestMethod.POST)
 	public ModelAndView update(Product product, HttpServletRequest req) {
 		String categoryId = req.getParameter("categoryId");
-		System.out.println(product.getId());
 		int category = Integer.parseInt(categoryId) ;
 		Category c = categoryDao.find(category);
 		product.setCategory(c);

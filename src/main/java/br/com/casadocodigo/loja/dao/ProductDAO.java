@@ -9,7 +9,6 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Repository;
 
 import br.com.casadocodigo.loja.models.Product;
-import br.com.casadocodigo.loja.models.User;
 
 @Repository
 @Transactional
@@ -26,12 +25,10 @@ public class ProductDAO {
 
 	public void save(Product product) {
 		manager.persist(product);
-
 	}
 
 	public Product find(Integer id) {
 		return manager.find(Product.class, id);
-
 	}
 
 	public void delete(Integer id) {

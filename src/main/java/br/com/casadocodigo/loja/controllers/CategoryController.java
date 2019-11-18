@@ -32,6 +32,7 @@ public class CategoryController {
 		}
 		ModelAndView modelAndView = new ModelAndView("category/index");
 		modelAndView.addObject("categories", categories);
+		modelAndView.addObject("pageName", "category");
 		return modelAndView;
 	}
 

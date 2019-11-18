@@ -27,6 +27,7 @@ public class UserController {
 		String searchString = req.getParameter("searchString");
 		List<User> users = dao.index(searchString);
 		ModelAndView modelAndView = new ModelAndView("user/index");
+		modelAndView.addObject("pageName", "user");
 		modelAndView.addObject("users", users);
 		return modelAndView;
 	}

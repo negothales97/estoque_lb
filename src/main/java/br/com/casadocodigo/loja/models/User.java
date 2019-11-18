@@ -47,5 +47,12 @@ public class User {
 		this.phone = phone;
 	}
 	
+	@Override
+	public String toString() {
+		StringBuffer sb = new StringBuffer();
+		sb.append("Nome: " + getName());
+		return sb.toString();
+	}
+	
 
 }
