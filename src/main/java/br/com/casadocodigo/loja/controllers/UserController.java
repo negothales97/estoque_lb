@@ -5,7 +5,6 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -34,7 +33,9 @@ public class UserController {
 	
 	@RequestMapping("criar")
 	public ModelAndView create() {
-		return new ModelAndView("user/create");
+		ModelAndView modelAndView = new ModelAndView("user/create");
+		modelAndView.addObject("pageName", "user");
+		return modelAndView;
 	}
 	
 	@RequestMapping(value="save", method=RequestMethod.POST)
@@ -48,6 +49,7 @@ public class UserController {
 		User user = dao.find(userID);
 		ModelAndView modelAndView = new ModelAndView("user/edit");
 		modelAndView.addObject("user", user);
+		modelAndView.addObject("pageName", "user");
 		return modelAndView;
 	}
 	

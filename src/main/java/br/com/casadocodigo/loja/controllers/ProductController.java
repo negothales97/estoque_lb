@@ -10,13 +10,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.casadocodigo.loja.dao.CategoryDAO;
 import br.com.casadocodigo.loja.dao.ProductDAO;
 import br.com.casadocodigo.loja.models.Category;
 import br.com.casadocodigo.loja.models.Product;
-import br.com.casadocodigo.loja.models.User;
 
 @Controller
 @RequestMapping("/produtos")
@@ -31,7 +29,6 @@ public class ProductController {
 	@RequestMapping(method=RequestMethod.GET)
 	public ModelAndView index(HttpServletRequest req) {
 			String searchString = req.getParameter("searchString");
-			System.out.println(searchString);
 			List<Product> products = dao.index(searchString);
 			ModelAndView modelAndView = new ModelAndView("product/index");
 			modelAndView.addObject("pageName", "product");
@@ -46,10 +43,10 @@ public class ProductController {
 		try {
 			categories = categoryDao.index(null);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		modelAndView.addObject("categories", categories);
+		modelAndView.addObject("pageName", "product");
 		return modelAndView;
 	}
 	
@@ -75,6 +72,7 @@ public class ProductController {
 		}
 		ModelAndView modelAndView = new ModelAndView("product/edit");
 		modelAndView.addObject("categories", categories);
+		modelAndView.addObject("pageName", "product");
 		modelAndView.addObject("product", product);
 		return modelAndView;
 	}

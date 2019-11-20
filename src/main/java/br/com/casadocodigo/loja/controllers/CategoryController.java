@@ -38,7 +38,9 @@ public class CategoryController {
 
 	@RequestMapping("criar")
 	public ModelAndView create() {
-		return new ModelAndView("category/create");
+		ModelAndView modelAndView = new ModelAndView("category/create");
+		modelAndView.addObject("pageName", "category");
+		return modelAndView;
 	}
 
 	@RequestMapping(value = "save", method = RequestMethod.POST)
@@ -56,6 +58,7 @@ public class CategoryController {
 		Category category = dao.find(categoryId);
 		ModelAndView modelAndView = new ModelAndView("category/edit");
 		modelAndView.addObject("category", category);
+		modelAndView.addObject("pageName", "category");
 		return modelAndView;
 	}
 

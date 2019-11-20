@@ -1,10 +1,13 @@
 package br.com.casadocodigo.loja.models;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Budget {
@@ -14,6 +17,9 @@ public class Budget {
 
 	private User user;
 	
+//	@OneToMany(mappedBy = "budget")
+//	private Set<BudgetProduct> budgetProducts;
+//	
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	public int getId() {
 		return id;
@@ -35,6 +41,12 @@ public class Budget {
 		this.total = total;
 	}
 	
+//	public Set<BudgetProduct> getBudgetProducts() {
+//		return budgetProducts;
+//	}
+//	public void setBudgetProducts(Set<BudgetProduct> budgetProducts) {
+//		this.budgetProducts = budgetProducts;
+//	}
 	@Override
 	public String toString() {
 		StringBuffer sb = new StringBuffer();
