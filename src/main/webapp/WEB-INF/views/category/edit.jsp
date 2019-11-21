@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="f" %>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -27,7 +28,8 @@
 				<div class="col-sm-6">
 					<div class="form-group">
 						<label for="name">Nome</label> <input type="text" name="name"
-							id="name" value="${category.name }" class="form-control">
+							id="name" value="${category.name }" class="form-control" required>
+							<f:errors path="category.name"/>
 					</div>
 				</div>
 			</div>

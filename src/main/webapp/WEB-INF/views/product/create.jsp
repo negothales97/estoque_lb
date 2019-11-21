@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="f"%>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -11,7 +12,7 @@
 <body>
 	<div class="container">
 		<header>
-		<jsp:include page="../includes/header.jsp" />
+			<jsp:include page="../includes/header.jsp" />
 		</header>
 		<div class="row" style="margin-top: 20px;">
 			<div class="col-sm-12">
@@ -24,13 +25,15 @@
 				<div class="col-sm-6">
 					<div class="form-group">
 						<label for="name">Nome</label> <input type="text" name="name"
-							id="name" class="form-control">
+							id="name" class="form-control" required>
+						<f:errors path="product.name" />
 					</div>
 				</div>
 				<div class="col-sm-6">
 					<div class="form-group">
-						<label for="publishing">Editora</label> <input type="text" name="publishing"
-							id="publishing" class="form-control">
+						<label for="publishing">Editora</label> <input type="text"
+							name="publishing" id="publishing" class="form-control" required>
+						<f:errors path="product.publishing" />
 					</div>
 				</div>
 
@@ -39,8 +42,8 @@
 				<div class="col-sm-12">
 					<div class="form-group">
 						<label for="category">Categoria</label> <select
-							class="form-control" name="categoryId">
-							<option>Selecione..</option>
+							class="form-control" name="categoryId" required>
+							<option disabled selected>Selecione..</option>
 							<c:forEach items="${categories }" var="category">
 								<option value="${category.id }">${category.name }</option>
 							</c:forEach>

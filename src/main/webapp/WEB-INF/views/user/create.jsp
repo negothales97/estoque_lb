@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="f"%>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -26,13 +27,15 @@
 				<div class="col-sm-6">
 					<div class="form-group">
 						<label for="name">Nome</label> <input type="text" name="name"
-							id="name" class="form-control">
+							id="name" class="form-control" required>
+						<f:errors path="user.name" />
 					</div>
 				</div>
 				<div class="col-sm-6">
 					<div class="form-group">
 						<label for="cpf">CPF</label> <input type="text" name="cpf"
-							id="cpf" class="form-control">
+							id="cpf" class="form-control" required>
+						<f:errors path="user.cpf" />
 					</div>
 				</div>
 			</div>
@@ -40,13 +43,15 @@
 				<div class="col-sm-6">
 					<div class="form-group">
 						<label for="email">E-mail</label> <input type="email" name="email"
-							id="email" class="form-control">
+							id="email" class="form-control" required>
+						<f:errors path="user.email" />
 					</div>
 				</div>
 				<div class="col-sm-6">
 					<div class="form-group">
 						<label for="phone">Telefone</label> <input type="text" name="phone"
-							id="phone" class="form-control">
+							id="phone" class="form-control" required>
+						<f:errors path="user.phone" />
 					</div>
 				</div>
 			</div>

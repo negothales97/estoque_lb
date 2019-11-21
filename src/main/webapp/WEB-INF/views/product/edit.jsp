@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="f"%>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -28,6 +29,7 @@
 					<div class="form-group">
 						<label for="name">Nome</label> <input type="text" name="name"
 							id="name" class="form-control" value="${product.name }">
+							<f:errors path="product.name" />
 					</div>
 				</div>
 				<div class="col-sm-6">
@@ -35,6 +37,7 @@
 						<label for="publishing">Editora</label> <input type="text"
 							name="publishing" id="publishing" class="form-control"
 							value="${product.publishing }">
+							<f:errors path="product.publishing" />
 					</div>
 				</div>
 

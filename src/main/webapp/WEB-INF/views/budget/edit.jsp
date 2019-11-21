@@ -29,7 +29,6 @@
 		<input type="hidden" value="${budget.id }" name="id">
 		<div class="row">
 			<div class="col-sm-6">
-
 				<h4>Comprador: ${budget.user.name }</h4>
 			</div>
 		</div>
@@ -146,11 +145,10 @@
 							<div class="col-sm-6">
 								<div class="form-group">
 									<label for="idProduct">Produto</label> <select name="idProduct"
-										id="idProduct" class="form-control">
+										id="idProduct" class="form-control" required>
 										<option disabled selected>Selecione..</option>
 										<c:forEach items="${products }" var="product">
 											<option value="${product.id}">${product.name}</option>
-
 										</c:forEach>
 									</select>
 								</div>
@@ -158,13 +156,13 @@
 							<div class="col-sm-3">
 								<div class="form-group">
 									<label for="qtd">Quantidade</label> <input type="number"
-										class="form-control" name="qtd" id="qtd">
+										class="form-control" name="qtd" id="qtd" required>
 								</div>
 							</div>
 							<div class="col-sm-3">
 								<div class="form-group">
 									<label for="price">Preço Unitário</label> <input type="text"
-										class="form-control" name="price" id="price">
+										class="form-control" name="price" id="price" required>
 								</div>
 							</div>
 						</div>

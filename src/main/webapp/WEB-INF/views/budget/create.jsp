@@ -26,7 +26,7 @@
 				<div class="col-sm-6">
 					<div class="form-group">
 						<label for="user">Usuários</label> <select class="form-control"
-							name="userId">
+							name="userId" required>
 							<option>Selecione..</option>
 							<c:forEach items="${users }" var="user">
 								<option value="${user.id }">${user.name }</option>
