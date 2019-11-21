@@ -31,6 +31,9 @@
 			<div class="col-sm-6">
 				<h4>Comprador: ${budget.user.name }</h4>
 			</div>
+			<div class="col-sm-6">
+				<h4>Total do Pedido:R$ ${budget.total}</h4>
+			</div>
 		</div>
 	</div>
 
@@ -97,6 +100,7 @@
 
 						<c:if test="${otherBudgets.size() > 0 }">
 							<c:forEach items="${otherBudgets }" var="otherBudget">
+							<c:if test="${otherBudget.id != budget.id }">
 								<tr>
 									<td>${otherBudget.id }</td>
 									<td>${otherBudget.total }</td>
@@ -116,6 +120,7 @@
 
 									</a></td>
 								</tr>
+								</c:if>
 							</c:forEach>
 						</c:if>
 					</tbody>
