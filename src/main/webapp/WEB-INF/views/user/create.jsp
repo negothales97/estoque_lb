@@ -34,7 +34,7 @@
 				<div class="col-sm-6">
 					<div class="form-group">
 						<label for="cpf">CPF</label> <input type="text" name="cpf"
-							id="cpf" class="form-control" required>
+							id="cpf" class="form-control input-cpf" required>
 						<f:errors path="user.cpf" />
 					</div>
 				</div>
@@ -50,7 +50,7 @@
 				<div class="col-sm-6">
 					<div class="form-group">
 						<label for="phone">Telefone</label> <input type="text" name="phone"
-							id="phone" class="form-control" required>
+							id="phone" class="form-control input-phone" required>
 						<f:errors path="user.phone" />
 					</div>
 				</div>
