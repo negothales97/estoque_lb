@@ -55,7 +55,7 @@
 							<c:forEach items="${budgets }" var="budget">
 								<tr>
 									<td>${budget.id }</td>
-									<td>${budget.total }</td>
+									<td class="input-money">${budget.total }</td>
 									<td>${budget.user.name}</td>
 									<td><a
 										href="${s:mvcUrl('BC#edit').arg(0,budget.id).build() }"
