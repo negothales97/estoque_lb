@@ -9,6 +9,9 @@ public class DatabaseConnection {
 	private String url = "jdbc:mysql://localhost/estoque?useTimezone=true&serverTimezone=UTC";
 	private String user = "root";
 	private String pass = "";
+	//private String url = "127.0.0.1";
+	//private String user = "azure";
+	//private String pass = "6#vWHD_$";
 
 	private static DatabaseConnection instancia = null;
 

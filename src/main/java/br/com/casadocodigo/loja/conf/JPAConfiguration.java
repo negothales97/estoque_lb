@@ -26,6 +26,9 @@ public class JPAConfiguration {
 		dataSource.setUsername("root");
 		dataSource.setPassword("");
 		dataSource.setUrl("jdbc:mysql://localhost/estoque?useTimezone=true&serverTimezone=UTC");
+		//dataSource.setUsername("azure");
+		//dataSource.setPassword("6#vWHD_$");
+		//dataSource.setUrl("127.0.0.1");
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
 		factoryBean.setDataSource(dataSource);
 		
