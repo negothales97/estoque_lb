@@ -36,6 +36,11 @@
 						<button type="button" class="btn btn-success float-right">Novo</button>
 					</a>
 				</div>
+				<div class="col-sm-4">
+					<a href="${s:mvcUrl('PC#index').build() }">
+						<button type="button" class="btn btn-success float-right">Mostrar</button>
+					</a>
+				</div>
 			</div>
 		</form>
 		<div class="row">

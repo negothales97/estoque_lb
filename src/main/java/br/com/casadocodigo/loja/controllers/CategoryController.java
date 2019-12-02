@@ -36,6 +36,7 @@ public class CategoryController {
 		String searchString = req.getParameter("searchString");
 		List<Category> categories = null;
 		categories = dao.index(searchString);
+		
 		ModelAndView modelAndView = new ModelAndView("category/index");
 		modelAndView.addObject("categories", categories);
 		modelAndView.addObject("pageName", "category");

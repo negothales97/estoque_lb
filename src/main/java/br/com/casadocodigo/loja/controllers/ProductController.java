@@ -41,6 +41,12 @@ public class ProductController {
 	public ModelAndView index(HttpServletRequest req) {
 		String searchString = req.getParameter("searchString");
 		List<Product> products = dao.index(searchString);
+		int soma= 0;
+		for (Product product : products) {
+			soma += product.getId();
+		}
+		System.out.println(soma);
+		System.out.println(products.get(1).getCategory().getName());
 		ModelAndView modelAndView = new ModelAndView("product/index");
 		modelAndView.addObject("pageName", "product");
 		modelAndView.addObject("products", products);

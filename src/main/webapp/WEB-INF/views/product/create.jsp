@@ -18,7 +18,7 @@
 			<div class="col-sm-12">
 				<h1>Novo Produto</h1>
 			</div>
-		</div>
+		</div>		
 		<form method="POST" action="${s:mvcUrl('PC#save').build() }">
 
 			<div class="row">
@@ -27,6 +27,13 @@
 						<label for="name">Nome</label> <input type="text" name="name"
 							id="name" class="form-control" required>
 						<f:errors path="product.name" />
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="form-group">
+						<label for="name">autor</label> <input type="text" name="autor"
+							id="autor" class="form-control" required>
+						<f:errors path="product.autor" />
 					</div>
 				</div>
 				<div class="col-sm-6">

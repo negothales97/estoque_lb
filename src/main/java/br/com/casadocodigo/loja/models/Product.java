@@ -15,6 +15,7 @@ public class Product {
 
 	private String name;
 	private String publishing;
+	private String autor;
 	@ManyToOne
 	private Category category;
 
@@ -25,7 +26,7 @@ public class Product {
 	public void setId(int id) {
 		this.id = id;
 	}
-
+	
 	public String getName() {
 		return name;
 	}
@@ -48,6 +49,14 @@ public class Product {
 
 	public void setCategory(Category category) {
 		this.category = category;
+	}
+
+	public String getAutor() {
+		return autor;
+	}
+
+	public void setAutor(String autor) {
+		this.autor = autor;
 	}
 
 }
